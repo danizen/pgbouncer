@@ -406,11 +406,7 @@ void load_config(void)
 		/* if ini file missing, don't kill anybody */
 		set_dbs_dead(false);
 	}
-
-	/* hook options test */
-	if (cf_hook_path != NULL) {
-		// load_hooks()
-	}
+	load_hooks();
 
 	if (cf_auth_type == AUTH_HBA) {
 		struct HBA *hba = hba_load_rules(cf_auth_hba_file);

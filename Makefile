@@ -23,6 +23,7 @@ pgbouncer_SOURCES = \
 	src/takeover.c \
 	src/util.c \
 	src/varcache.c \
+	src/hooks.c \
 	include/admin.h \
 	include/bouncer.h \
 	include/client.h \
