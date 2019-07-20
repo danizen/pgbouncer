@@ -319,7 +319,7 @@ static const struct CfSect config_sects [] = {
 		.sect_name = "users",
 		.set_key = parse_user,
 	}, {
-		.sect_name = "plugins",
+		.sect_name = "hooks",
 		.key_list = hook_params,
 	}, {
 		.sect_name = NULL,
@@ -405,6 +405,11 @@ void load_config(void)
 		log_warning("config file loading failed");
 		/* if ini file missing, don't kill anybody */
 		set_dbs_dead(false);
+	}
+
+	/* hook options test */
+	if (cf_hook_path != NULL) {
+		// load_hooks()
 	}
 
 	if (cf_auth_type == AUTH_HBA) {
