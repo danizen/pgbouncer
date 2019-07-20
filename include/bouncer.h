@@ -484,6 +484,11 @@ extern char *cf_server_tls_cert_file;
 extern char *cf_server_tls_key_file;
 extern char *cf_server_tls_ciphers;
 
+extern char *cf_hook_path;
+extern char *cf_rewrite_query_hook;
+extern char *cf_route_connection_hook;
+extern char *cf_auth_failed_hook;
+
 extern const struct CfLookup pool_mode_map[];
 
 extern usec_t g_suspend_start;

@@ -160,6 +160,11 @@ char *cf_server_tls_cert_file;
 char *cf_server_tls_key_file;
 char *cf_server_tls_ciphers;
 
+char *cf_hook_path;
+char *cf_rewrite_query_hook;
+char *cf_route_connection_hook;
+char *cf_auth_failed_hook;
+
 /*
  * config file description
  */
@@ -294,6 +299,15 @@ CF_ABS("server_tls_ciphers", CF_STR, cf_server_tls_ciphers, CF_NO_RELOAD, "fast"
 {NULL}
 };
 
+static const struct CfKey hook_params[] = {
+CF_ABS("path", CF_STR, cf_hook_path, 0, "."),
+CF_ABS("rewrite_query", CF_STR, cf_rewrite_query_hook, 0, NULL),
+CF_ABS("route_connection", CF_STR, cf_rewrite_query_hook, 0, NULL),
+CF_ABS("auth_failed", CF_STR, cf_route_connection_hook, 0, NULL),
+{NULL}
+};
+
+
 static const struct CfSect config_sects [] = {
 	{
 		.sect_name = "pgbouncer",
@@ -304,6 +318,9 @@ static const struct CfSect config_sects [] = {
 	}, {
 		.sect_name = "users",
 		.set_key = parse_user,
+	}, {
+		.sect_name = "plugins",
+		.set_key = hook_params,
 	}, {
 		.sect_name = NULL,
 	}
