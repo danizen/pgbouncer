@@ -320,7 +320,7 @@ static const struct CfSect config_sects [] = {
 		.set_key = parse_user,
 	}, {
 		.sect_name = "plugins",
-		.set_key = hook_params,
+		.key_list = hook_params,
 	}, {
 		.sect_name = NULL,
 	}
